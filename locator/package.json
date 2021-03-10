@@ -12,5 +12,11 @@
     "country"
   ],
   "author": "Fleuron Gnadekpa \\ <vilfleur@gmail.com\\> (https://github.com/fleuronvilik)",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.0.0"
+  }
 }
