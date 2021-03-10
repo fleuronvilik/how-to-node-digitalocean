@@ -1,0 +1,16 @@
+{
+  "name": "locator",
+  "version": "1.0.0",
+  "description": "Finds which country the incoming request comes from",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ip",
+    "geo",
+    "country"
+  ],
+  "author": "Fleuron Gnadekpa \\ <vilfleur@gmail.com\\> (https://github.com/fleuronvilik)",
+  "license": "ISC"
+}
