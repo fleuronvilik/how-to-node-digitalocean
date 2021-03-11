@@ -20,3 +20,4 @@ exports.getRandomColor = () => {
 
 exports.allColors = allColors;
 
+exports.getBlue = () => allColors[2];
