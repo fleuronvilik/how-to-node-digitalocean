@@ -25,3 +25,12 @@ describe("integration test", function() {
   });
 });
 
+describe("complete()", function() {
+  it("should fail if there are no TODOs", function() {
+    let todos = new Todos();
+    const expectedError = new Error("You have no TODOs stored. Why don't you add one first?");
+    assert.throws(() => {
+      todos.complete("doesn't exist");
+    }, expectedError);
+  });
+});
