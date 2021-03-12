@@ -1,5 +1,6 @@
 const Todos = require('./index');
 const assert = require('assert').strict;
+const fs = require('fs');
 
 describe("integration test", function() {
   it("should be able to add and complete TODOs", function() {
@@ -32,5 +33,19 @@ describe("complete()", function() {
     assert.throws(() => {
       todos.complete("doesn't exist");
     }, expectedError);
+  });
+});
+
+describe("saveToFile()", function() {
+  it("should save a single TODO", function(done) {
+    let todos = new Todos();
+    todos.add("save a CSV");
+    todos.saveToFile(err => {
+      assert.strictEqual(fs.existsSync("todos.csv"), true);
+      let expectedFileContents = "Title,Completed\nsave a CSV,false\n";
+      let content = fs.readFileSync("todos.csv").toString();
+      assert.strictEqual(content, expectedFileContents);
+      done(err);
+    });
   });
 });
