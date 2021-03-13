@@ -5,22 +5,22 @@ const port = 8000;
 const fs = require('fs').promises;
 
 const requestListener = function(req, res) {
-  fs.readFile(`${__dirname}/index.html`)
-    .then(markup => {
-      res.setHeader("Content-Type", "text/html");
-      res.writeHead(200);
-      res.end(markup);
-    })
-    .catch(err => {
-      res.writeHead(500);
-      res.end(err);
-      return;
-    });
+    res.setHeader("Content-Type", "text/html");
+    res.writeHead(200);
+    res.end(home);
 };
 
 const server = http.createServer(requestListener);
 
-server.listen(port, host, () => {
-  console.log(`Server is running on http://${host}:${port}`);
-});
+var home = fs.readFile(`${__dirname}/index.html`)
+  .then(markup => {
+    home = markup;
+    server.listen(port, host, () => {
+      console.log(`Server is running on http://${host}:${port}`);
+    });
+  })
+  .catch(err => {
+    console.error(`Could not read index.html file: ${err}`);
+    process.exit(1); 
+  });
 
